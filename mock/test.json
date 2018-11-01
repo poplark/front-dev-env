@@ -1,0 +1,6 @@
+{
+    "action": "testResponse",
+    "data": {
+        "text": "mock data"
+    }
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE; chrome=1;">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    -->
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>%WEBSITE_NAME%</title>
+    <meta name="description" content="%WEBSITE_DESCRIPTION%">
+    <style>
+        .uc-starter-loading {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            z-index: 1;
+            margin-top: 0px;
+            top: 0px;
+            left: 0px;
+        }
+
+        .uc-starter-loading-center {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .uc-starter-loading-center-absolute {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 150px;
+            width: 150px;
+            margin-top: -75px;
+            margin-left: -75px;
+        }
+
+        .uc-starter-loading-center-object {
+            width: 20px;
+            height: 20px;
+            background-color: #3774ff;
+            float: left;
+            margin-right: 20px;
+            margin-top: 65px;
+            -moz-border-radius: 50% 50% 50% 50%;
+            -webkit-border-radius: 50% 50% 50% 50%;
+            border-radius: 50% 50% 50% 50%;
+        }
+
+        .uc-starter-loading-center-error {
+            color: #ff2722;
+        }
+
+        .uc-starter-loading-center-object.object_one {
+            -webkit-animation: object_one 1.5s infinite;
+            animation: object_one 1.5s infinite;
+        }
+
+        .uc-starter-loading-center-object.object_two {
+            -webkit-animation: object_two 1.5s infinite;
+            animation: object_two 1.5s infinite;
+            -webkit-animation-delay: 0.25s;
+            animation-delay: 0.25s;
+        }
+
+        .uc-starter-loading-center-object.object_three {
+            -webkit-animation: object_three 1.5s infinite;
+            animation: object_three 1.5s infinite;
+            -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+        }
+
+        @-webkit-keyframes object_one {
+            75% {
+                -webkit-transform: scale(0);
+            }
+        }
+
+        @keyframes object_one {
+
+            75% {
+                transform: scale(0);
+                -webkit-transform: scale(0);
+            }
+        }
+
+        @-webkit-keyframes object_two {
+            75% {
+                -webkit-transform: scale(0);
+            }
+        }
+
+        @keyframes object_two {
+            75% {
+                transform: scale(0);
+                -webkit-transform: scale(0);
+            }
+        }
+
+        @-webkit-keyframes object_three {
+
+            75% {
+                -webkit-transform: scale(0);
+            }
+        }
+
+        @keyframes object_three {
+
+            75% {
+                transform: scale(0);
+                -webkit-transform: scale(0);
+            }
+        }
+    </style>
+    <script>
+        ;
+        (function (window, document, getBrowserInfo, undefined) {
+            'use strict';
+            var browserInfo = getBrowserInfo(window.navigator.userAgent) || {},
+                    ver = parseInt(browserInfo["version"], 10) || 0,
+                    fillBody = null;
+            if ((browserInfo["msie"] && ver < 10) ||
+                    (browserInfo["chrome"] && ver < 20) ||
+                    (browserInfo["firefox"] && ver < 20) ||
+                    (browserInfo["safari"] && ver < 5)) {
+                fillBody = function () {
+                    document.body.innerHTML = '<div class="say_bay"><div class="outer-north"><img src="http://static.ucloud.cn/4efd0e173cd439aa109e48ce1f411618.png"></div><h3>您使用的浏览器版本过低，可能导致部分页面展示效果不佳，建议您使用以下浏览器进行访问。</h3><p class="p">点击以下链接，升级浏览器</p><div class="browser"><a href="http://www.microsoft.com/zh-cn/download/internet-explorer-9-details.aspx" target="_blank"><ul class="download-browser"><li><img src="http://static.ucloud.cn/da4d92169544e2dcb1a0c2a28fe2b343.png"></li><li>Internet Explorer<p class="help-text">(10.0及以上)</p></li></ul></a> <a href="https://www.google.com/chrome/" target="_blank"><ul class="download-browser"><li><img src="http://static.ucloud.cn/9d6e011f9181ffd9030f373b56f46754.png"></li><li>Chrome<p class="help-text">(20.0及以上)</p></li></ul></a> <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank"><ul class="download-browser"><li><img src="http://static.ucloud.cn/c29d4045f038cdc0a2f5f8e532fac159.png"></li><li>Firefox<p class="help-text">(20.0及以上)</p></li></ul></a> <a href="https://www.apple.com/safari/" target="_blank"><ul class="download-browser"><li><img src="http://static.ucloud.cn/0ab03fb460d2f4b68de4a1664e2cbeca.png"></li><li>Safari<p class="help-text">(5.0及以上)</p></li></ul></a></div></div>';
+                };
+                if (document.addEventListener) {
+                    document.addEventListener("DOMContentLoaded", fillBody, false);
+                } else {
+                    document.attachEvent("onreadystatechange", fillBody);
+                }
+            }
+        }(window, document, function (userAgent) {
+            var browser = {},
+                    matched = (function (ua) {
+                        var match = /(chrome)[ \/]([\w.]+)/.exec(ua) ||
+                                ///(webkit)[ \/]([\w.]+)/.exec( ua ) ||
+                                ///version[\/][\d.]+.*(safari)[ \/]([\w.]+)/.exec(ua) ||
+                                /version[\/]([\d.]+).*(safari)[ \/][\w.]+/.exec(ua) ||
+                                /(msie) ([\w.]+)/.exec(ua) ||
+                                /(firefox)[\/]([\w.]+)/.exec(ua) ||
+                                /(opera)(?:.*version|)[ \/]([\w.]+)/.exec(ua) ||
+                                ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec(ua) || [];
+                        if (match[2] === "safari") {
+                            return {
+                                browser: match[2] || "",
+                                version: match[1] || "0"
+                            };
+                        }
+                        ;
+                        return {
+                            browser: match[1] || "",
+                            version: match[2] || "0"
+                        };
+                    })(userAgent.toLowerCase());
+            if (matched.browser) {
+                browser[matched.browser] = true;
+                browser.version = matched.version;
+            }
+            return browser;
+        }));
+    </script>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div style="height:100%;width:100%;" id="root">
+        <div class="uc-starter-loading">
+            <div class="uc-starter-loading-center">
+                <div class="uc-starter-loading-center-absolute">
+                    <div class="uc-starter-loading-center-object object_one"></div>
+                    <div class="uc-starter-loading-center-object object_two"></div>
+                    <div class="uc-starter-loading-center-object object_three"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
